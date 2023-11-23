@@ -40,6 +40,6 @@ http.createServer((req, res) =>{
 
     
 
-}).listen(5959,()=>console.log("Server is running"));
+}).listen(3000,()=>console.log("Server is running"));
 
  
