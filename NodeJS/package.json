@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "cors": "^2.8.5",
-    "mime-types": "git+https://github.com/jshttp/mime-types.git"
-  }
-}
