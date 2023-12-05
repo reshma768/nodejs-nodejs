@@ -42,29 +42,11 @@ http.createServer((req, res) => {
                 res.end(content);
             }
         });
-    } else if (url.startsWith('/image/')) {
-        // Serve image files
-        serveImage(url.substring(1), res);
-    } else {
+    }  else {
         // Unknown URL
         res.writeHead(404, { 'Content-Type': 'text/html' });
         res.end('<h1>404 Not Found</h1>');
     }
 }).listen(3000, () => console.log('Server is running'));
 
-function serveImage(filename, response) {
-    const filePath = path.join(__dirname, 'public', 'image', filename);
-    fs.readFile(filePath, (err, content) => {
-        if (err) {
-            console.error(err);
-            response.writeHead(404, { 'Content-Type': 'text/html' });
-            response.end('<h1>404 Not Found</h1>');
-        } else {
-            // Determine Content-Type based on file content
-            const contentType = mime.lookup(filePath) || 'application/octet-stream';
 
-            response.writeHead(200, { 'Content-Type': contentType });
-            response.end(content);
-        }
-    });
-}
