@@ -32,6 +32,10 @@ http.createServer((req, res) =>{
             res.end(content)
     
            })
+    else if (req.url.startsWith('/image/')) {
+        // Serve image files from the 'public/image' directory
+        serveFile(req.url.substring(1), 'image/png', res);
+    } 
     
     }
     else{
